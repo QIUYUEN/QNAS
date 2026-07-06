@@ -2,7 +2,7 @@ QNAS便携式轻量化NAS系统 Ver 1.0
 
 QNAS使用说明：
 
-1. 在使用前，为了确保QNAS顺利运行，您的系统需要先安装Node.js，这是一个JavaScript运行环境，如果您的系统已经有Node.js，那么可以略过此步骤。
+1. 在使用前，为了确保QNAS顺利运行，您的系统需要先安装Node.js，这是一个JavaScript运行环境，如果您的系统已经有Node.js，那么可以略过此步骤。Node.js下载地址：https://nodejs.org/en/download。
 
 2. 双击根目录里的start.bat，会弹出一个命令窗口，这样QNAS就已经运行完成，注意，在NAS系统运行期间，请勿关闭这个命令窗口。
 
@@ -28,7 +28,8 @@ QNAS的外网访问功能是通过Cloudflare加密隧道实现的，如果您NAS
 
 QNAS使用説明：
 
-1. QNASを正常に動作させるため、使用前にお使いのシステムへNode.jsのインストールが必要になる場合があります。Node.jsはJavaScriptの実行環境です。Node.jsフォルダー内にある「node-v24.18.0-x64.msi」を見つけて、インストールしてください。
+1. 使用前に、QNASを正常に動作させるためにNode.jsをインストールする必要があります。Node.jsはJavaScriptの実行環境です。すでにインストール済みの場合はこの手順をスキップできます。
+Node.jsダウンロードリンク：https://nodejs.org/en/download。
 
 2. Node.jsのインストールが完了したら、ルートディレクトリにある「start.bat」をダブルクリックしてください。コマンドウィンドウが表示され、これでQNASの起動は完了です。なお、NASシステムの実行中は、このコマンドウィンドウを閉じないでください。
 
@@ -54,7 +55,7 @@ QNASの外部ネットワークアクセス機能は、Cloudflareの暗号化ト
 
 QNAS User Guide:
 
-1. Before using QNAS, your system may need to install Node.js to ensure that QNAS runs properly. Node.js is a JavaScript runtime environment. You can find “node-v24.18.0-x64.msi” in the Node.js folder. Please install it first.
+1. Before using QNAS, you need to install Node.js to ensure the system runs properly. Node.js is a JavaScript runtime environment. If it is already installed on your system, you can skip this step.Download Node.js:https://nodejs.org/en/download.
 
 2. After Node.js has been installed, double-click “start.bat” in the root directory. A command window will appear, which means QNAS has started successfully. Please note that while the NAS system is running, do not close this command window.
 
