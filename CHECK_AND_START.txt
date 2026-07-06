@@ -1,0 +1,19 @@
+If start.bat flashes and closes:
+
+1. Open this folder in File Explorer.
+2. Double-click start.bat.
+3. Open logs\startup.log and copy the content.
+
+Manual test:
+1. Click the folder address bar.
+2. Type: cmd
+3. Press Enter.
+4. Run:
+   npm install
+   node server.js
+
+Check if something is occupying port 8088:
+   netstat -ano | findstr :8088
+
+Stop possible leftover Node.js processes:
+   taskkill /F /IM node.exe

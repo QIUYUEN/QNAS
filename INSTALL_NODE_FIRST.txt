@@ -1,0 +1,25 @@
+NAS Lite cannot run until Node.js is available.
+
+Why?
+- HTML/CSS/JS in the browser cannot directly read, upload to, delete, copy, or rename files on Windows disks.
+- The included Node.js backend is what performs those local disk operations safely.
+
+Recommended setup:
+1. Go to https://nodejs.org/
+2. Download the LTS version for Windows.
+3. Install it.
+4. Keep "Add to PATH" enabled during installation.
+5. Open a new CMD window and run:
+   node -v
+   npm -v
+6. If both commands show version numbers, double-click start.bat again.
+
+Portable setup:
+1. Download the Windows x64 ZIP package from https://nodejs.org/dist/
+2. Extract it.
+3. Create this folder inside NAS Lite:
+   runtime\node\
+4. Copy the extracted Node.js files into runtime\node\
+5. Confirm this file exists:
+   runtime\node\node.exe
+6. Double-click start.bat again.

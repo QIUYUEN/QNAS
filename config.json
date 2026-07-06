@@ -1,0 +1,41 @@
+{
+  "server": {
+    "host": "0.0.0.0",
+    "port": 8088,
+    "jwtSecret": "please-change-this-random-secret",
+    "autoPort": true,
+    "portRangeEnd": 8188
+  },
+  "admin": {
+    "username": "admin",
+    "passwordHash": "$2a$10$pbgYY./iUbWNYavfHBw/neOrfcF9V81K/GQUk1HbHYbqoFa96B11K"
+  },
+  "fileAccess": {
+    "hideSystemDrive": false,
+    "allowWholeNonSystemDrives": true,
+    "customRoots": [],
+    "trashInsteadOfDelete": true,
+    "maxUploadMB": 2048,
+    "hideHiddenFiles": true
+  },
+  "cloudflare": {
+    "enabled": true,
+    "mode": "quick",
+    "domain": "",
+    "cloudflaredPath": "tools\\cloudflared.exe",
+    "token": "",
+    "extraArgs": []
+  },
+  "users": [
+    {
+      "id": "admin",
+      "username": "admin",
+      "displayName": "admin",
+      "role": "admin",
+      "avatar": "",
+      "passwordHash": "$2a$10$pbgYY./iUbWNYavfHBw/neOrfcF9V81K/GQUk1HbHYbqoFa96B11K",
+      "createdAt": "2026-07-05T03:52:49.036Z",
+      "updatedAt": "2026-07-05T03:52:49.036Z"
+    }
+  ]
+}

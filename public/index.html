@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>QNAS</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div id="loginView" class="login-wrap">
+    <div class="login-card">
+      <img class="login-logo" src="/logo.avif" alt="QNAS" />
+      <p data-i18n="loginSubtitle">轻量级便携式文件管理系统</p>
+      <input id="username" placeholder="账号" autocomplete="username" data-i18n-placeholder="username" />
+      <input id="password" placeholder="密码" type="password" autocomplete="current-password" data-i18n-placeholder="password" />
+      <button id="loginBtn" data-i18n="login">登录</button>
+      <div id="loginError" class="error"></div>
+    </div>
+    <div class="login-copyright">QYE.NET © 2001–2026</div>
+  </div>
+
+  <div id="appView" class="app hidden">
+    <aside id="sidebar" class="sidebar">
+      <div class="brand-row">
+        <img class="brand-logo" src="/logo.avif" alt="QNAS" />
+        <button id="closeSidebarBtn" class="icon-btn mobile-only">×</button>
+      </div>
+
+      <div class="sidebar-user-card">
+        <button id="userBtn" class="user-chip sidebar-user"><span id="userAvatar" class="avatar-mini">A</span><span id="userNameText">admin</span></button>
+        <div class="user-role-text" id="userRoleText">管理员</div>
+      </div>
+
+      <div class="language-row">
+        <button class="lang-btn active" data-lang="zh">中文</button>
+        <button class="lang-btn" data-lang="ja">日本語</button>
+        <button class="lang-btn" data-lang="en">English</button>
+      </div>
+
+      <div class="section-title" data-i18n="drivesTitle">磁盘 / 目录</div>
+      <div id="driveList" class="drive-list"></div>
+      <div class="status-card">
+        <div class="section-title" data-i18n="addressTitle">访问地址</div>
+        <div id="addressBox" class="address-box">正在读取...</div>
+        <div class="side-actions">
+          <button id="restartTunnelBtn" class="ghost small" data-i18n="restartTunnel">开启外网访问</button>
+          <button id="logoutBtn" class="ghost small" data-i18n="logout">退出</button>
+        </div>
+      </div>
+      <div class="copyright">QYE.NET © 2001–2026</div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="mobile-topline">
+          <button id="openSidebarBtn" class="icon-btn mobile-only">☰</button>
+          <div class="crumb-wrap">
+            <div class="crumb" id="currentPath" data-i18n="noDir">未选择目录</div>
+          </div>
+        </div>
+        <div class="view-switch" aria-label="View mode">
+          <button id="iconViewBtn" class="view-btn active" data-i18n="iconView">图标</button>
+          <button id="detailViewBtn" class="view-btn" data-i18n="detailView">详细信息</button>
+        </div>
+      </header>
+
+      <input id="fileInput" type="file" multiple class="hidden" />
+
+      <div id="dropZone" class="drop-zone">
+        <div id="dropHint" class="drop-hint" data-i18n="dropHint">松开鼠标，将文件上传到当前目录</div>
+        <table class="file-table">
+          <thead>
+            <tr><th class="check"></th><th data-i18n="name">名称</th><th data-i18n="size">大小</th><th data-i18n="modifiedAt">修改时间</th></tr>
+          </thead>
+          <tbody id="fileBody"></tbody>
+        </table>
+        <div id="emptyState" class="empty" data-i18n="chooseDrive">请选择左侧磁盘</div>
+        <div id="selectionBox" class="selection-box hidden"></div>
+      </div>
+    </main>
+  </div>
+
+  <div id="userModal" class="modal hidden">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h2 data-i18n="accountSettings">账户设置</h2>
+        <button id="closeUserModalBtn" class="icon-btn">×</button>
+      </div>
+      <div class="tabs">
+        <button id="profileTabBtn" class="tab active" data-i18n="profile">个人资料</button>
+        <button id="passwordTabBtn" class="tab" data-i18n="changePassword">修改密码</button>
+        <button id="adminTabBtn" class="tab hidden" data-i18n="userManagement">用户管理</button>
+      </div>
+
+      <section id="profilePanel" class="panel active">
+        <div class="profile-row">
+          <span id="profileAvatar" class="avatar-large">A</span>
+          <div>
+            <div id="profileName" class="profile-name">admin</div>
+            <div id="profileRole" class="profile-role">管理员</div>
+          </div>
+        </div>
+        <div class="avatar-update-title" data-i18n="updateAvatar">更新头像</div>
+        <input id="avatarInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif" />
+        <button id="uploadAvatarBtn" class="avatar-upload-btn" data-i18n="uploadAvatar">上传头像</button>
+      </section>
+
+      <section id="passwordPanel" class="panel">
+        <label><span data-i18n="oldPassword">原密码</span><input id="oldPassword" type="password" /></label>
+        <label><span data-i18n="newPassword">新密码</span><input id="newPassword" type="password" /></label>
+        <button id="changePasswordBtn" data-i18n="savePassword">保存新密码</button>
+      </section>
+
+      <section id="adminPanel" class="panel">
+        <div class="user-form">
+          <input id="newUsername" placeholder="新用户名，英文/数字/下划线" data-i18n-placeholder="newUsername" />
+          <input id="newUserPassword" type="password" placeholder="初始密码，至少6位" data-i18n-placeholder="newUserPassword" />
+          <button id="createUserBtn" data-i18n="createUser">新增用户</button>
+        </div>
+        <div id="userList" class="user-list"></div>
+      </section>
+    </div>
+  </div>
+
+  <div id="contextMenu" class="context-menu hidden">
+    <button data-action="open" data-i18n="open">打开</button>
+    <button data-action="back" data-i18n="back">返回</button>
+    <button data-action="upload" data-i18n="upload">上传</button>
+    <button data-action="download" data-i18n="download">下载</button>
+    <button data-action="copy" data-i18n="copy">复制</button>
+    <button data-action="cut" data-i18n="cut">剪切</button>
+    <button data-action="move" data-i18n="move">移动</button>
+    <button data-action="paste" data-i18n="paste">粘贴</button>
+    <button data-action="mkdir" data-i18n="mkdir">新建文件夹</button>
+    <button data-action="rename" data-i18n="rename">重命名</button>
+    <button data-action="properties" data-i18n="properties">属性</button>
+    <button data-action="zip" data-i18n="compressZip">压缩为ZIP</button>
+    <button data-action="delete" class="danger-text" data-i18n="delete">删除</button>
+  </div>
+  <div id="toast" class="toast hidden"></div>
+  <script src="/js/api.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
